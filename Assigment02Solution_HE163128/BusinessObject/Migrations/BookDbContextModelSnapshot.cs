@@ -67,7 +67,7 @@ namespace BusinessObject.Migrations
 
                     b.HasKey("author_id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
                 });
 
             modelBuilder.Entity("BusinessObject.Model.Book", b =>
@@ -115,7 +115,7 @@ namespace BusinessObject.Migrations
 
                     b.HasIndex("Publisherpub_id");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("BusinessObject.Model.BookAuthor", b =>
@@ -136,7 +136,7 @@ namespace BusinessObject.Migrations
 
                     b.HasIndex("author_id");
 
-                    b.ToTable("BookAuthors");
+                    b.ToTable("BookAuthors", (string)null);
                 });
 
             modelBuilder.Entity("BusinessObject.Model.Publisher", b =>
@@ -166,7 +166,7 @@ namespace BusinessObject.Migrations
 
                     b.HasKey("pub_id");
 
-                    b.ToTable("Publishers");
+                    b.ToTable("Publishers", (string)null);
                 });
 
             modelBuilder.Entity("BusinessObject.Model.Role", b =>
@@ -184,7 +184,7 @@ namespace BusinessObject.Migrations
 
                     b.HasKey("role_Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("BusinessObject.Model.User", b =>
@@ -244,7 +244,7 @@ namespace BusinessObject.Migrations
 
                     b.HasIndex("role_Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("BusinessObject.Model.Book", b =>

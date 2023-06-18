@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\C# project\\Assigment02Solution_HE163128\\eBookStoreWebAPI\\eBookStoreWebAPI.csproj": {}
+    "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStoreWebAPI\\eBookStoreWebAPI.csproj": {}
   },
   "projects": {
-    "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj": {
+    "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj",
+        "projectPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj",
         "packagesPath": "C:\\Users\\Thinkpad\\.nuget\\packages\\",
-        "outputPath": "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\obj\\",
+        "outputPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thinkpad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -81,14 +81,14 @@
         }
       }
     },
-    "E:\\C# project\\Assigment02Solution_HE163128\\DataAccess\\DataAccess.csproj": {
+    "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\C# project\\Assigment02Solution_HE163128\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "E:\\C# project\\Assigment02Solution_HE163128\\DataAccess\\DataAccess.csproj",
+        "projectPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\Thinkpad\\.nuget\\packages\\",
-        "outputPath": "E:\\C# project\\Assigment02Solution_HE163128\\DataAccess\\obj\\",
+        "outputPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thinkpad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -105,8 +105,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj"
+              "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
@@ -140,14 +140,14 @@
         }
       }
     },
-    "E:\\C# project\\Assigment02Solution_HE163128\\eBookStoreWebAPI\\eBookStoreWebAPI.csproj": {
+    "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStoreWebAPI\\eBookStoreWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\C# project\\Assigment02Solution_HE163128\\eBookStoreWebAPI\\eBookStoreWebAPI.csproj",
+        "projectUniqueName": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStoreWebAPI\\eBookStoreWebAPI.csproj",
         "projectName": "eBookStoreWebAPI",
-        "projectPath": "E:\\C# project\\Assigment02Solution_HE163128\\eBookStoreWebAPI\\eBookStoreWebAPI.csproj",
+        "projectPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStoreWebAPI\\eBookStoreWebAPI.csproj",
         "packagesPath": "C:\\Users\\Thinkpad\\.nuget\\packages\\",
-        "outputPath": "E:\\C# project\\Assigment02Solution_HE163128\\eBookStoreWebAPI\\obj\\",
+        "outputPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStoreWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thinkpad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -164,11 +164,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj"
+              "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj"
               },
-              "E:\\C# project\\Assigment02Solution_HE163128\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "E:\\C# project\\Assigment02Solution_HE163128\\DataAccess\\DataAccess.csproj"
+              "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -183,6 +183,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.18, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.18, )"
+            },
+            "Microsoft.AspNetCore.OData": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj": {}
+    "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj": {}
   },
   "projects": {
-    "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj": {
+    "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj",
+        "projectPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\BusinessObject.csproj",
         "packagesPath": "C:\\Users\\Thinkpad\\.nuget\\packages\\",
-        "outputPath": "E:\\C# project\\Assigment02Solution_HE163128\\BusinessObject\\obj\\",
+        "outputPath": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thinkpad\\AppData\\Roaming\\NuGet\\NuGet.Config",
