@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessObject.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20230616184704_initDb")]
+    [Migration("20230619011552_initDb")]
     partial class initDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,9 +80,6 @@ namespace BusinessObject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("book_id"), 1L, 1);
 
-                    b.Property<int?>("Publisherpub_id")
-                        .HasColumnType("int");
-
                     b.Property<double?>("advance")
                         .HasColumnType("float");
 
@@ -90,7 +87,8 @@ namespace BusinessObject.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<double>("price")
+                    b.Property<double?>("price")
+                        .IsRequired()
                         .HasColumnType("float");
 
                     b.Property<int?>("pub_id")
@@ -115,7 +113,7 @@ namespace BusinessObject.Migrations
 
                     b.HasKey("book_id");
 
-                    b.HasIndex("Publisherpub_id");
+                    b.HasIndex("pub_id");
 
                     b.ToTable("Books");
                 });
@@ -127,6 +125,12 @@ namespace BusinessObject.Migrations
 
                     b.Property<int?>("author_id")
                         .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime?>("author_order")
                         .HasColumnType("datetime2");
@@ -197,9 +201,6 @@ namespace BusinessObject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("user_id"), 1L, 1);
 
-                    b.Property<int?>("Publisherpub_id")
-                        .HasColumnType("int");
-
                     b.Property<string>("email_address")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -231,9 +232,6 @@ namespace BusinessObject.Migrations
                     b.Property<int?>("pub_id")
                         .HasColumnType("int");
 
-                    b.Property<int?>("role_Id")
-                        .HasColumnType("int");
-
                     b.Property<int?>("role_id")
                         .HasColumnType("int");
 
@@ -242,9 +240,9 @@ namespace BusinessObject.Migrations
 
                     b.HasKey("user_id");
 
-                    b.HasIndex("Publisherpub_id");
+                    b.HasIndex("pub_id");
 
-                    b.HasIndex("role_Id");
+                    b.HasIndex("role_id");
 
                     b.ToTable("Users");
                 });
@@ -253,7 +251,7 @@ namespace BusinessObject.Migrations
                 {
                     b.HasOne("BusinessObject.Model.Publisher", "Publisher")
                         .WithMany()
-                        .HasForeignKey("Publisherpub_id");
+                        .HasForeignKey("pub_id");
 
                     b.Navigation("Publisher");
                 });
@@ -281,11 +279,11 @@ namespace BusinessObject.Migrations
                 {
                     b.HasOne("BusinessObject.Model.Publisher", "Publisher")
                         .WithMany()
-                        .HasForeignKey("Publisherpub_id");
+                        .HasForeignKey("pub_id");
 
                     b.HasOne("BusinessObject.Model.Role", "Role")
                         .WithMany()
-                        .HasForeignKey("role_Id");
+                        .HasForeignKey("role_id");
 
                     b.Navigation("Publisher");
 

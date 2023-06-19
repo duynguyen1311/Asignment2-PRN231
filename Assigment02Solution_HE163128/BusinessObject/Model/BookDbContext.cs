@@ -9,9 +9,7 @@ namespace BusinessObject.Model
 {
     public class BookDbContext : DbContext
     {
-        public BookDbContext()
-        {
-        }
+       
         public BookDbContext(DbContextOptions<BookDbContext> options) : base(options)
         {
         }

@@ -24,6 +24,34 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/C\# project/Asignment2-PRN231/Assigment02Solution_HE163128/eBookStore/Views/Manage/AddAuthor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXEFkZEF1dGhvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\# project/Asignment2-PRN231/Assigment02Solution_HE163128/eBookStore/Views/Manage/AddPublisher.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXEFkZFB1Ymxpc2hlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\# project/Asignment2-PRN231/Assigment02Solution_HE163128/eBookStore/Views/Manage/Author.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXEF1dGhvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\# project/Asignment2-PRN231/Assigment02Solution_HE163128/eBookStore/Views/Manage/Book.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXEJvb2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\# project/Asignment2-PRN231/Assigment02Solution_HE163128/eBookStore/Views/Manage/Publisher.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXFB1Ymxpc2hlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\# project/Asignment2-PRN231/Assigment02Solution_HE163128/eBookStore/Views/Manage/UpdateAuthor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXFVwZGF0ZUF1dGhvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\# project/Asignment2-PRN231/Assigment02Solution_HE163128/eBookStore/Views/Manage/UpdatePublisher.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlXFVwZGF0ZVB1Ymxpc2hlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/C\# project/Asignment2-PRN231/Assigment02Solution_HE163128/eBookStore/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

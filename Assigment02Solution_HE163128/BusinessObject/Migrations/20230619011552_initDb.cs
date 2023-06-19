@@ -67,7 +67,6 @@ namespace BusinessObject.Migrations
                     title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     type = table.Column<int>(type: "int", nullable: false),
                     pub_id = table.Column<int>(type: "int", nullable: true),
-                    Publisherpub_id = table.Column<int>(type: "int", nullable: true),
                     price = table.Column<double>(type: "float", nullable: false),
                     advance = table.Column<double>(type: "float", nullable: true),
                     royalty = table.Column<int>(type: "int", nullable: true),
@@ -79,8 +78,8 @@ namespace BusinessObject.Migrations
                 {
                     table.PrimaryKey("PK_Books", x => x.book_id);
                     table.ForeignKey(
-                        name: "FK_Books_Publishers_Publisherpub_id",
-                        column: x => x.Publisherpub_id,
+                        name: "FK_Books_Publishers_pub_id",
+                        column: x => x.pub_id,
                         principalTable: "Publishers",
                         principalColumn: "pub_id");
                 });
@@ -97,22 +96,21 @@ namespace BusinessObject.Migrations
                     first_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     middle_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     last_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    role_Id = table.Column<int>(type: "int", nullable: true),
+                    role_id = table.Column<int>(type: "int", nullable: true),
                     pub_id = table.Column<int>(type: "int", nullable: true),
-                    Publisherpub_id = table.Column<int>(type: "int", nullable: true),
                     hire_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.user_id);
                     table.ForeignKey(
-                        name: "FK_Users_Publishers_Publisherpub_id",
-                        column: x => x.Publisherpub_id,
+                        name: "FK_Users_Publishers_pub_id",
+                        column: x => x.pub_id,
                         principalTable: "Publishers",
                         principalColumn: "pub_id");
                     table.ForeignKey(
-                        name: "FK_Users_Roles_role_Id",
-                        column: x => x.role_Id,
+                        name: "FK_Users_Roles_role_id",
+                        column: x => x.role_id,
                         principalTable: "Roles",
                         principalColumn: "role_Id");
                 });
@@ -123,6 +121,8 @@ namespace BusinessObject.Migrations
                 {
                     author_id = table.Column<int>(type: "int", nullable: false),
                     book_id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     author_order = table.Column<DateTime>(type: "datetime2", nullable: true),
                     royalty_percentage = table.Column<double>(type: "float", nullable: true)
                 },
@@ -149,19 +149,19 @@ namespace BusinessObject.Migrations
                 column: "author_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Books_Publisherpub_id",
+                name: "IX_Books_pub_id",
                 table: "Books",
-                column: "Publisherpub_id");
+                column: "pub_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_Publisherpub_id",
+                name: "IX_Users_pub_id",
                 table: "Users",
-                column: "Publisherpub_id");
+                column: "pub_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_role_Id",
+                name: "IX_Users_role_id",
                 table: "Users",
-                column: "role_Id");
+                column: "role_id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

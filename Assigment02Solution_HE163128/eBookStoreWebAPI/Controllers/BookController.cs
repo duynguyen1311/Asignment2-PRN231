@@ -1,5 +1,7 @@
-﻿using BusinessObject.Model;
+﻿using AutoMapper;
+using BusinessObject.Model;
 using DataAccess.IRepository;
+using eBookStoreWebAPI.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Formatter;
@@ -13,14 +15,16 @@ namespace eBookStoreWebAPI.Controllers
     public class BookController : ODataController
     {
         private readonly IBookRepository _repo;
+        private readonly IMapper _mapper;
 
-        public BookController(IBookRepository repo)
+        public BookController(IBookRepository repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        [EnableQuery(PageSize = 3)]
+        [EnableQuery]
         public IActionResult Get()
         {
             var list = _repo.GetBooks();

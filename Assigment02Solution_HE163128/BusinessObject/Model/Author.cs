@@ -33,6 +33,6 @@ namespace BusinessObject.Model
         [StringLength(50)]
         public string? zip { get; set; }
         
-        public ICollection<BookAuthor> BookAuthor { get; set; }
+        public ICollection<BookAuthor>? BookAuthor { get; set; }
     }
 }

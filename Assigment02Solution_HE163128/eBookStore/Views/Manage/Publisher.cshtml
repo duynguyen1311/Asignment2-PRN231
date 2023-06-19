@@ -1,0 +1,135 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="mobile-menu-overlay"></div>
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Publisher List</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Publisher</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    @*@if (User.IsInRole(RoleConstant.ADMIN))
+                    {*@
+                        <div class="col-md-6 col-sm-12 text-right">
+                            <div class="dropdown">
+                                <a class="btn btn-primary" asp-action="AddPublisher" asp-controller="Manage">
+                                    Add Publisher
+                                </a>
+                            </div>
+                        </div>
+                    @*}*@
+                </div>
+            </div>
+            @*<form method="get">
+                <div class="row mb-15">
+                    <div class="col-md-4">
+                        <div class="header-search">
+                            <form method="get">
+                                <div class="form-group mb-0" style="display:flex">
+                                    <i style="justify-content: flex-start;"
+                                       class="dw dw-search2 search-icon mr-10 mt-15"></i>
+                                    <input asp-for="Keyword" style="justify-content: flex-end;" type="text"
+                                           class="form-control search-input" placeholder="Search Here">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="display: flex;">
+                            <p style="justify-content: flex-start; margin-top:9px" class="mr-10">Status</p>
+                            <div style="justify-content: flex-end; width: 200px;">
+                                <select asp-for="Status" class="custom-select">
+                                    <option selected="" value="null">All</option>
+                                    <option value="True">Hoạt động</option>
+                                    <option value="False">Không hoạt động</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" style="height: 44px;margin-left: 20px;width: 114px;" class="btn btn-success">Filter</button>
+                </div>
+            </form>*@
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered ">
+                    <thead style="background-color: lightgray">
+                        <tr>
+                            <th>Publisher Name</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Country</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.model)
+                        {
+                            <tr>
+                                <td>@item.publisher_name</td>
+                                <td>@item.city</td>
+                                <td>@item.state</td>
+                                <td>@item.country</td>
+                                
+                                <td>
+                                    <div class="dropdown">
+                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                            <i class="dw dw-more"></i>
+                                        </a>
+                                        @*@if (User.IsInRole(RoleConstant.ADMIN))
+                                        {*@
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                <a href="@Url.Action("UpdatePublisher", "Manage", new { isEdit = true, pid = item.pub_id})" class="dropdown-item" ><i class="dw dw-edit2"></i> Edit</a>
+                                                <a href="@Url.Action("UpdatePublisher", "Manage", new { isEdit = false, pid = item.pub_id})" class="dropdown-item" ><i class="dw dw-edit1"></i> Detail</a>
+                                                <a asp-action="DeletePublisher" asp-controller="Manage" asp-route-pid="@item.pub_id" class="dropdown-item" ><i class="dw dw-delete-3" onclick="return confirm('Are you sure you want to delete this item?');"></i> Delete</a>
+                                            </div>
+                                        @*}*@
+                                        @*else
+                                        {
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                <a class="dropdown-item" asp-page="UpdatePublisher" asp-route-id="@item.Id"><i class="dw dw-edit2"></i> View</a>
+                                            </div>
+                                        }*@
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function confirmDelete(event) {
+        event.preventDefault(); // prevent the default action of the button click
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // if the user clicks the confirm button, continue with the delete action
+                window.location.href = event.target.href;
+            }
+        });
+        return false;
+    }
+</script>

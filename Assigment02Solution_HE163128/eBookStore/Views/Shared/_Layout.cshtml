@@ -4,7 +4,7 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8">
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>Book Store</title>
 
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="~/vendors/images/apple-touch-icon.png">
@@ -141,7 +141,7 @@
                 <img style="max-width: 56px;" src="vendors/images/home-icon.png" alt="">
             </a>
             <div style="display: flex; flex-direction: column; justify-content: center">
-                <h5 class="text-white">SMS System</h5>
+                <h5 class="text-yellow">Book Store System</h5>
             </div>
             <div class="close-sidebar" data-toggle="left-sidebar-close">
                 <i class="ion-close-round"></i>
@@ -156,35 +156,29 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/DepartmentPage/Department" class="dropdown-toggle no-arrow">
-                            <span class="micon dw dw-list3"></span><span class="mtext">Department</span>
+                        <a href="/Manage/Author" class="dropdown-toggle no-arrow">
+                            <span class="micon dw dw-list3"></span><span class="mtext">Author</span>
                         </a>
                     </li>
                    @* @if (User.IsInRole(RoleConstant.ADMIN))
                     {*@
                         <li>
-                            <a href="/StudentPage/Student" class="dropdown-toggle no-arrow">
-                                <span class="micon dw dw-user-12"></span><span class="mtext">Student</span>
+                            <a href="/Manage/Publisher" class="dropdown-toggle no-arrow">
+                                <span class="micon dw dw-user-12"></span><span class="mtext">Publisher</span>
                             </a>
                         </li>
                     @*}*@
 
                     <li>
-                        <a href="/ClassRoomPage/ClassRoom" class="dropdown-toggle no-arrow">
-                            <span class="micon dw dw-open-book-2"></span><span class="mtext">Class</span>
+                        <a href="/Manage/Book" class="dropdown-toggle no-arrow">
+                            <span class="micon dw dw-open-book-2"></span><span class="mtext">Book</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/SubjectPage/Subject" class="dropdown-toggle no-arrow">
-                            <span class="micon dw dw-book2"></span><span class="mtext">Subject</span>
+                        <a href="/Manage/User" class="dropdown-toggle no-arrow">
+                            <span class="micon dw dw-user-12"></span><span class="mtext">User</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="/PointPage/Point" class="dropdown-toggle no-arrow">
-                            <span class="micon dw dw-marker"></span><span class="mtext">Mark Report</span>
-                        </a>
-                    </li>
-                   
                 </ul>
             </div>
         </div>

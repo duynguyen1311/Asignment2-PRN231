@@ -1,0 +1,100 @@
+﻿@model eBookStore.Models.Publisher.PublisherRequestViewModel
+
+<div class="mobile-menu-overlay"></div>
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        @*<div class="title">
+                        <h4>Form</h4>
+                        </div>*@
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-action="Publisher" asp-controller="Manage">Publisher List</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">@(Model.IsEdited ? "Edit Publisher" : "Detail Publisher")</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Default Basic Forms Start -->
+            @if (Model.IsEdited)
+            {
+                
+            <div class="pd-20 card-box mb-30">
+                <form method="post" asp-action="UpdatePublisher" asp-controller="Manage">
+                            <input asp-for="@Model.pub_id" class="form-control" type="hidden">
+                    <div class="form-group row">
+                        <label asp-for="@Model.publisher_name" class="col-sm-12 col-md-2 col-form-label">Publisher Name</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.publisher_name" class="form-control" type="text" placeholder="Publisher name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.city" class="col-sm-12 col-md-2 col-form-label">City</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.city" class="form-control" type="text" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.state" class="col-sm-12 col-md-2 col-form-label">State</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.state" class="form-control" type="text" placeholder="State">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.country" class="col-sm-12 col-md-2 col-form-label">Country</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.country" class="form-control" type="text" placeholder="Country">
+                        </div>
+                    </div>
+                    <div class="btn-list">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-action="Publisher" asp-controller="Manage" type="submit" class="btn btn-danger">Cancel</a>
+                    </div>
+                </form>
+            </div>
+            }
+            else
+            {
+            <div class="pd-20 card-box mb-30">
+                
+                            <input asp-for="@Model.pub_id" class="form-control" type="hidden">
+                    <div class="form-group row">
+                        <label asp-for="@Model.publisher_name" class="col-sm-12 col-md-2 col-form-label">Publisher Name</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.publisher_name" class="form-control" type="text" readonly="readonly" placeholder="Publisher name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.city" class="col-sm-12 col-md-2 col-form-label">City</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.city" class="form-control" type="text" readonly="readonly" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.state" class="col-sm-12 col-md-2 col-form-label">State</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.state" class="form-control" type="text" readonly="readonly" placeholder="State">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.country" class="col-sm-12 col-md-2 col-form-label">Country</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.country" class="form-control" type="text" readonly="readonly" placeholder="Country">
+                        </div>
+                    </div>
+
+                    <div class="btn-list">
+                        <a asp-action="Publisher" asp-controller="Manage" type="submit" class="btn btn-danger">Back</a>
+                    </div>
+            </div>  
+            }
+            <!-- Default Basic Forms End -->
+
+        </div>
+    </div>
+</div>

@@ -31,7 +31,7 @@ namespace DataAccess.DAO
                 var token = new TokenService(_configuration).GenerateToken(user);
                 return token;
             }
-            
+
             catch (Exception e)
             {
                 throw new Exception(e.Message);
@@ -42,23 +42,22 @@ namespace DataAccess.DAO
         {
             try
             {
-                using (var context = new BookDbContext())
+
+                var mem = new User()
                 {
-                    var mem = new User()
-                    {
-                        email_address = User.Email,
-                        password = User.Password,
-                        source = User.Source,
-                        first_name = User.FirstName,
-                        middle_name = User.MiddleName,
-                        last_name = User.LastName,
-                        role_id = 1,
-                        pub_id = User.PubId,
-                        hire_date = DateTime.Now
-                    };
-                    context.Users.Add(mem);
-                    context.SaveChanges();
-                }
+                    email_address = User.Email,
+                    password = User.Password,
+                    source = User.Source,
+                    first_name = User.FirstName,
+                    middle_name = User.MiddleName,
+                    last_name = User.LastName,
+                    role_id = 1,
+                    pub_id = User.PubId,
+                    hire_date = DateTime.Now
+                };
+                _context.Users.Add(mem);
+                _context.SaveChanges();
+
             }
             catch (Exception e)
             {

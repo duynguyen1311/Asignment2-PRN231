@@ -16,6 +16,12 @@ namespace DataAccess.DAO
         {
             _context = context;
         }
+        /*public List<BookAuthor>? GetBooks()
+        {
+            var list = _context.BookAuthors.Include(i => i.Book).ThenInclude(i => i.Publisher)
+                .Include(i => i.Author).ToList();
+            return list;
+        }*/
         public List<Book>? GetBooks()
         {
             var list = _context.Books.ToList();

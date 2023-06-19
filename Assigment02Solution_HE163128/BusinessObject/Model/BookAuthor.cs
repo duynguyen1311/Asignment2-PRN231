@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,13 +10,17 @@ namespace BusinessObject.Model
 {
     public class BookAuthor
     {
-        [ForeignKey("author_id")]
-        public int? author_id { get; set; }
-        public Author? Author { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
-        [ForeignKey("book_id")]
+        [ForeignKey("Author")]
+        public int? author_id { get; set; }
+        public virtual Author? Author { get; set; }
+
+        [ForeignKey("Book")]
         public int? book_id { get; set; }
-        public Book? Book { get; set; }
+        public virtual Book? Book { get; set; }
 
         public DateTime? author_order { get; set; }
         public double? royalty_percentage { get; set; }

@@ -152,3 +152,6 @@ E:\C# project\Asignment2-PRN231\Assigment02Solution_HE163128\eBookStoreWebAPI\ob
 E:\C# project\Asignment2-PRN231\Assigment02Solution_HE163128\eBookStoreWebAPI\obj\Debug\net6.0\eBookStoreWebAPI.pdb
 E:\C# project\Asignment2-PRN231\Assigment02Solution_HE163128\eBookStoreWebAPI\obj\Debug\net6.0\eBookStoreWebAPI.genruntimeconfig.cache
 E:\C# project\Asignment2-PRN231\Assigment02Solution_HE163128\eBookStoreWebAPI\obj\Debug\net6.0\ref\eBookStoreWebAPI.dll
+E:\C# project\Asignment2-PRN231\Assigment02Solution_HE163128\eBookStoreWebAPI\bin\Debug\net6.0\AutoMapper.dll
+E:\C# project\Asignment2-PRN231\Assigment02Solution_HE163128\eBookStoreWebAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\C# project\Asignment2-PRN231\Assigment02Solution_HE163128\eBookStoreWebAPI\obj\Debug\net6.0\eBookStoreWebAPI.MvcApplicationPartsAssemblyInfo.cs

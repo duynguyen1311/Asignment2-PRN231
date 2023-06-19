@@ -20,12 +20,12 @@ namespace BusinessObject.Model
         [Required]
         public int type { get; set; }
 
-        [ForeignKey("pub_id")]
+        [ForeignKey("Publisher")]
         public int? pub_id { get; set; }
-        public Publisher? Publisher { get; set; }
+        public virtual Publisher? Publisher { get; set; }
 
         [Required]
-        public double price { get; set; }
+        public double? price { get; set; }
         public double? advance { get; set; }
         public int? royalty { get; set; }
         public double? ytd_sales { get; set; }
@@ -33,6 +33,6 @@ namespace BusinessObject.Model
         public string? notes { get; set; }
         public DateTime? published_date { get; set; }
 
-        public ICollection<BookAuthor> BookAuthor { get; set; }
+        public ICollection<BookAuthor>? BookAuthor { get; set; }
     }
 }
