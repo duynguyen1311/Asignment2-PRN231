@@ -1,0 +1,81 @@
+﻿@model eBookStore.Models.Book.BookRequestViewModel 
+
+<div class="mobile-menu-overlay"></div>
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        @*<div class="title">
+                        <h4>Form</h4>
+                        </div>*@
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-action="Book" asp-controller="Manage">Book List</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Book</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Default Basic Forms Start -->
+            <div class="pd-20 card-box mb-30">
+                <form method="post" asp-action="AddBook" asp-controller="Manage">
+                    <div class="form-group row">
+                        <label asp-for="@Model.title" class="col-sm-12 col-md-2 col-form-label">Title</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.title" class="form-control" type="text" placeholder="Title" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.type" class="col-sm-12 col-md-2 col-form-label">Type</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.type" class="form-control" type="text" placeholder="Type" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.price" class="col-sm-12 col-md-2 col-form-label">Price</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.price" class="form-control" type="text" placeholder="Price" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.advance" class="col-sm-12 col-md-2 col-form-label">Advance</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.advance" class="form-control" type="text" placeholder="Advance">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.royalty" class="col-sm-12 col-md-2 col-form-label">Royalty</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.royalty" class="form-control" type="text" placeholder="Royalty">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.ytd_sales" class="col-sm-12 col-md-2 col-form-label">Year Sales</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.ytd_sales" class="form-control" type="text" placeholder="Year Sales">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Publisher</label>
+                        <select asp-for="@Model.pub_id" class="custom-select2 form-control" style="width: 100%; height: 38px;">
+                            @foreach(var item in ViewBag.model)
+                            {
+                                <option value="@item.pub_id">@item.publisher_name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="btn-list">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-action="Book" asp-controller="Manage" class="btn btn-danger">Cancel</a>
+                    </div>
+                </form>
+            </div>
+            <!-- Default Basic Forms End -->
+
+        </div>
+    </div>
+</div>

@@ -24,7 +24,7 @@ namespace DataAccess.DAO
         }*/
         public List<Book>? GetBooks()
         {
-            var list = _context.Books.ToList();
+            var list = _context.Books.Include(i => i.Publisher).ToList();
             return list;
         }
 

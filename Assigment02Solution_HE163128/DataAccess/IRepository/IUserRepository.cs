@@ -1,4 +1,5 @@
-﻿using DataAccess.DTO;
+﻿using BusinessObject.Model;
+using DataAccess.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace DataAccess.IRepository
 {
     public interface IUserRepository
     {
-        string Login(string email, string password);
+        User Login(string email, string password);
         void Register(UserRequestDTO member);
     }
 }

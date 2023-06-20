@@ -20,7 +20,7 @@ namespace DataAccess.Service
             _configuration = configuration;
         }
 
-        public string GenerateToken(User user)
+        public string GenerateToken(User user, string role)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecretKey"]));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -29,9 +29,10 @@ namespace DataAccess.Service
             {
             new Claim(ClaimTypes.NameIdentifier, user.user_id.ToString()),
             new Claim(ClaimTypes.Email, user.email_address),
+            new Claim(ClaimTypes.Role, role),
             // Add other claims as needed
-        };
 
+            };
             var token = new JwtSecurityToken(
                 issuer: _configuration["JwtSettings:Issuer"],
                 audience: _configuration["JwtSettings:Audience"],

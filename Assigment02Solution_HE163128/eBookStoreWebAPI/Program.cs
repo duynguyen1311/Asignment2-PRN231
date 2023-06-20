@@ -3,12 +3,14 @@ using DataAccess.DAO;
 using DataAccess.IRepository;
 using DataAccess.Repository;
 using eBookStoreWebAPI.Configuration;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
+using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -19,14 +21,15 @@ static IEdmModel GetEdmModel()
     builder.EntitySet<Author>("Author");
     builder.EntitySet<User>("User");
     builder.EntitySet<Publisher>("Publisher");
-   /* var bookAuthorEntitySet = builder.EntitySet<BookAuthor>("BookAuthor");
+    builder.EntitySet<BookAuthor>("BookAuthor");
+    /* var bookAuthorEntitySet = builder.EntitySet<BookAuthor>("BookAuthor");
 
-    // Configure the many-to-many relationship between Book and Author
-    builder.EntityType<Book>().HasMany(b => b.BookAuthor).WithMany(a => a.Books).MapToODataRoute();
+     // Configure the many-to-many relationship between Book and Author
+     builder.EntityType<Book>().HasMany(b => b.BookAuthor).WithMany(a => a.Books).MapToODataRoute();
 
-    // Configure the navigation properties in the junction table
-    builder.EntityType<BookAuthor>().HasRequired(ba => ba.Book);
-    builder.EntityType<BookAuthor>().HasRequired(ba => ba.Author);*/
+     // Configure the navigation properties in the junction table
+     builder.EntityType<BookAuthor>().HasRequired(ba => ba.Book);
+     builder.EntityType<BookAuthor>().HasRequired(ba => ba.Author);*/
 
 
     return builder.GetEdmModel();
@@ -38,7 +41,30 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    //options.OperationFilter<EnableQueryFilter>();
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Assignment02Solution.HE163128.API", Version = "v1" });
+    var securityScheme = new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        BearerFormat = "JWT",
+        Description = "JWT Authorization header using the Bearer scheme.",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        Reference = new OpenApiReference
+        {
+            Type = ReferenceType.SecurityScheme,
+            Id = "Bearer"
+        }
+    };
+    options.AddSecurityDefinition("Bearer", securityScheme);
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        { securityScheme, new[] { "Bearer" } }
+    });
+});
 builder.Services.AddControllers().AddJsonOptions(op => op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddScoped<IPublisherRepository, PublisherRepository>();
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
@@ -50,11 +76,38 @@ builder.Services.AddScoped<BookDAO>();
 builder.Services.AddScoped<UserDAO>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = false,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetValue<string>("JwtKey"))),
+        ValidateIssuer = false,
+        ValidIssuer = builder.Configuration["JwtIssuer"],
+        ValidateAudience = false,
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(op =>
+{
+    op.Cookie.Name = "IsLoggedIn";
+    op.IdleTimeout = TimeSpan.FromMinutes(30);
+    op.Cookie.IsEssential = true;
+
+});
 
 builder.Services.AddDbContext<BookDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("MyConnectionString")));
 builder.Services.AddControllers().AddOData(opt => opt.Select().Filter().Count().OrderBy().Expand().SetMaxTop(100)
 .AddRouteComponents("odata",GetEdmModel()));
-var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+/*var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -69,6 +122,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = key
         };
     });
+*/
+
 
 var app = builder.Build();
 
@@ -80,9 +135,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

@@ -45,15 +45,7 @@ namespace DataAccess.DAO
         {
             try
             {
-                var au = _context.Authors.FirstOrDefault(x => x.author_id == p.author_id);
-                au.first_name = p.first_name;
-                au.last_name = p.last_name;
-                au.phone = p.phone;
-                au.address = p.address;
-                au.city = p.city;
-                au.state = p.state;
-                au.zip = p.zip;
-                au.email_address = p.email_address;
+                _context.Entry<Author>(p).State = EntityState.Modified;
                 _context.SaveChanges();
             }
             catch (Exception e)

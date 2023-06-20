@@ -14,15 +14,18 @@
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a asp-action="Author" asp-controller="Manage">Author List</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Edit Author</li>
+                                <li class="breadcrumb-item active" aria-current="page">@(Model.IsEdited ? "Edit Author" : "Detail Author")</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
             </div>
             <!-- Default Basic Forms Start -->
-            <div class="pd-20 card-box mb-30">
+            @if (Model.IsEdited)
+            {
+                <div class="pd-20 card-box mb-30">
                 <form method="post" asp-action="UpdateAuthor" asp-controller="Manage">
+                            <input asp-for="@Model.author_id" class="form-control" type="hidden">
                     <div class="form-group row">
                         <label asp-for="@Model.first_name" class="col-sm-12 col-md-2 col-form-label">First Name</label>
                         <div class="col-sm-12 col-md-10">
@@ -76,7 +79,68 @@
                         <a asp-action="Author" asp-controller="Manage" type="submit" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
+                </div>
+            }
+            else
+            {
+                <div class="pd-20 card-box mb-30">
+                <form method="post" asp-action="UpdateAuthor" asp-controller="Manage">
+                            <input asp-for="@Model.author_id" class="form-control" type="hidden">
+                    <div class="form-group row">
+                        <label asp-for="@Model.first_name" class="col-sm-12 col-md-2 col-form-label">First Name</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.first_name" class="form-control" type="text" placeholder="First name" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.last_name" class="col-sm-12 col-md-2 col-form-label">Last Name</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.last_name" class="form-control" type="text" placeholder="Last name" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.email_address" class="col-sm-12 col-md-2 col-form-label">Email</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.email_address" class="form-control" type="email" placeholder="email" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.phone" class="col-sm-12 col-md-2 col-form-label">Phone</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.phone" class="form-control" type="text" placeholder="phone" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.address" class="col-sm-12 col-md-2 col-form-label">Address</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.address" class="form-control" type="text" placeholder="address" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.city" class="col-sm-12 col-md-2 col-form-label">City</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.city" class="form-control" type="text" placeholder="City" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.state" class="col-sm-12 col-md-2 col-form-label">State</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.state" class="form-control" type="text" placeholder="State" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="@Model.zip" class="col-sm-12 col-md-2 col-form-label">Zip</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input asp-for="@Model.zip" class="form-control" type="text" placeholder="Zip" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="btn-list">
+                        <a asp-action="Author" asp-controller="Manage" type="submit" class="btn btn-primary">Back</a>
+                    </div>
+                </form>
             </div>
+            }
+            
             <!-- Default Basic Forms End -->
 
         </div>

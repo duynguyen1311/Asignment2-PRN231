@@ -1,9 +1,12 @@
 ﻿using eBookStore.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace eBookStore.Controllers
 {
+    //[Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -15,6 +18,10 @@ namespace eBookStore.Controllers
 
         public IActionResult Index()
         {
+            if(HttpContext.Session.GetString("IsLoggedIn") == null)
+            {
+                return RedirectToAction("Login","Account");
+            }
             return View();
         }
 

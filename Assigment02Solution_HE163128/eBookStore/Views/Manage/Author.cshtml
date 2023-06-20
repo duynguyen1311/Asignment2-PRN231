@@ -2,6 +2,8 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    var isAdmin = Context.Session.GetString("IsAdmin");
+    var isUser = Context.Session.GetString("IsUser");
 }
 
 <div class="mobile-menu-overlay"></div>
@@ -22,8 +24,8 @@
                             </ol>
                         </nav>
                     </div>
-                    @*@if (User.IsInRole(RoleConstant.ADMIN))
-                    {*@
+                    @if (!string.IsNullOrEmpty(isAdmin))
+                    {
                         <div class="col-md-6 col-sm-12 text-right">
                             <div class="dropdown">
                                 <a class="btn btn-primary" asp-action="AddAuthor" asp-controller="Manage">
@@ -31,7 +33,7 @@
                                 </a>
                             </div>
                         </div>
-                    @*}*@
+                    }
                 </div>
             </div>
             @*<form method="get">
@@ -97,9 +99,12 @@
                                         @*@if (User.IsInRole(RoleConstant.ADMIN))
                                         {*@
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                <a href="@Url.Action("UpdateAuthor", "Manage", new { isEdit = true, aid = item.author_id})" class="dropdown-item" ><i class="dw dw-edit2"></i> Edit</a>
+                                            @if (!string.IsNullOrEmpty(isAdmin))
+                                            {
+                                            <a href="@Url.Action("UpdateAuthor", "Manage", new { isEdit = true, aid = item.author_id})" class="dropdown-item" ><i class="dw dw-edit2"></i> Edit</a>    
+                                            <a asp-action="DeleteAuthor" asp-controller="Manage" asp-route-aid="@item.author_id" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this item?');"><i class="dw dw-delete-3" ></i> Delete</a>
+                                            }
                                                 <a href="@Url.Action("UpdateAuthor", "Manage", new { isEdit = false, aid = item.author_id})" class="dropdown-item" ><i class="dw dw-edit1"></i> Detail</a>
-                                                <a asp-action="DeleteAuthor" asp-controller="Manage" asp-route-pid="@item.author_id" class="dropdown-item" ><i class="dw dw-delete-3" onclick="return confirm('Are you sure you want to delete this item?');"></i> Delete</a>
                                             </div>
                                         @*}*@
                                         @*else

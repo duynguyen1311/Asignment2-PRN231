@@ -22,14 +22,15 @@ namespace DataAccess.DAO
             _context = context;
             _configuration = configuration;
         }
-        public string Login(string email, string password)
+        public User Login(string email, string password)
         {
             try
             {
-                var user = _context.Users.FirstOrDefault(x => x.email_address == email && x.password == password);
+                var user = _context.Users.AsNoTracking().Where(user => user.email_address.ToLower() == email.ToLower() && user.password == password)
+                .Include(user => user.Role).FirstOrDefault();
                 if (user == null) { return null; }
-                var token = new TokenService(_configuration).GenerateToken(user);
-                return token;
+
+                return user;
             }
 
             catch (Exception e)
@@ -53,7 +54,7 @@ namespace DataAccess.DAO
                     last_name = User.LastName,
                     role_id = 1,
                     pub_id = User.PubId,
-                    hire_date = DateTime.Now
+                    hire_date = User.HireDate,
                 };
                 _context.Users.Add(mem);
                 _context.SaveChanges();

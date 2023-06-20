@@ -1,4 +1,5 @@
-﻿using DataAccess.DAO;
+﻿using BusinessObject.Model;
+using DataAccess.DAO;
 using DataAccess.DTO;
 using DataAccess.IRepository;
 using System;
@@ -16,7 +17,7 @@ namespace DataAccess.Repository
         {
             _dao = dao;
         }
-        public string Login(string email, string password) => _dao.Login(email, password);
+        public User Login(string email, string password) => _dao.Login(email, password);
 
         public void Register(UserRequestDTO member) => _dao.Register(member);
     }

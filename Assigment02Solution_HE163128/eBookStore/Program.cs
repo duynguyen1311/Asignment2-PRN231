@@ -1,7 +1,23 @@
+using Newtonsoft.Json;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+{
+    NullValueHandling = NullValueHandling.Ignore
+};
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession();
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication("CookieAuthentication")
+    .AddCookie("CookieAuthentication", options =>
+    {
+        options.LoginPath = "/Account/Login";
+        //options.ExpireTimeSpan = TimeSpan.FromHours(23).Add(TimeSpan.FromMinutes(50));
+    });
+
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -13,13 +29,14 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
-
+app.UseAuthentication();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
