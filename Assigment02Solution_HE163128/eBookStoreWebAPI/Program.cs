@@ -22,16 +22,6 @@ static IEdmModel GetEdmModel()
     builder.EntitySet<User>("User");
     builder.EntitySet<Publisher>("Publisher");
     builder.EntitySet<BookAuthor>("BookAuthor");
-    /* var bookAuthorEntitySet = builder.EntitySet<BookAuthor>("BookAuthor");
-
-     // Configure the many-to-many relationship between Book and Author
-     builder.EntityType<Book>().HasMany(b => b.BookAuthor).WithMany(a => a.Books).MapToODataRoute();
-
-     // Configure the navigation properties in the junction table
-     builder.EntityType<BookAuthor>().HasRequired(ba => ba.Book);
-     builder.EntityType<BookAuthor>().HasRequired(ba => ba.Author);*/
-
-
     return builder.GetEdmModel();
 }
 var builder = WebApplication.CreateBuilder(args);
