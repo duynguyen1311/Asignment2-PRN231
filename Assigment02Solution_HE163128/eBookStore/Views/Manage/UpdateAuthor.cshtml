@@ -1,5 +1,10 @@
 ﻿@model eBookStore.Models.Author.AuthorRequestViewModel 
 
+@{
+    var isEdited = ViewData["IsEdit"] as bool?;
+    var authorId = ViewData["AuthorId"] as string;
+}
+
 <div class="mobile-menu-overlay"></div>
 
 <div class="main-container">
@@ -14,64 +19,64 @@
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a asp-action="Author" asp-controller="Manage">Author List</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">@(Model.IsEdited ? "Edit Author" : "Detail Author")</li>
+                                <li class="breadcrumb-item active" aria-current="page">@(isEdited == true ? "Edit Author" : "Detail Author")</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
             </div>
             <!-- Default Basic Forms Start -->
-            @if (Model.IsEdited)
+            @if (isEdited == true)
             {
                 <div class="pd-20 card-box mb-30">
-                <form method="post" asp-action="UpdateAuthor" asp-controller="Manage">
-                            <input asp-for="@Model.author_id" class="form-control" type="hidden">
+                <form method="post" id="form-update">
+                            <input class="form-control" id="author_id" name="author_id" value="@authorId" type="hidden">
                     <div class="form-group row">
-                        <label asp-for="@Model.first_name" class="col-sm-12 col-md-2 col-form-label">First Name</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">First Name</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.first_name" class="form-control" type="text" placeholder="First name" required="required">
+                            <input class="form-control" id="first_name" name="first_name" type="text" placeholder="First name" required="required">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.last_name" class="col-sm-12 col-md-2 col-form-label">Last Name</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Last Name</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.last_name" class="form-control" type="text" placeholder="Last name" required="required">
+                            <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Last name" required="required">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.email_address" class="col-sm-12 col-md-2 col-form-label">Email</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Email</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.email_address" class="form-control" type="email" placeholder="email" required="required">
+                            <input class="form-control" id="email_address" name="email_address" type="email" placeholder="email" required="required">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.phone" class="col-sm-12 col-md-2 col-form-label">Phone</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Phone</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.phone" class="form-control" type="text" placeholder="phone">
+                            <input class="form-control" id="phone" name="phone" type="text" placeholder="phone">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.address" class="col-sm-12 col-md-2 col-form-label">Address</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Address</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.address" class="form-control" type="text" placeholder="address">
+                            <input class="form-control" id="address" name="address" type="text" placeholder="address">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.city" class="col-sm-12 col-md-2 col-form-label">City</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">City</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.city" class="form-control" type="text" placeholder="City">
+                            <input class="form-control" id="city" name="city" type="text" placeholder="City">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.state" class="col-sm-12 col-md-2 col-form-label">State</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">State</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.state" class="form-control" type="text" placeholder="State">
+                            <input class="form-control" id="state" name="state" type="text" placeholder="State">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.zip" class="col-sm-12 col-md-2 col-form-label">Country</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">ZipCode</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.zip" class="form-control" type="text" placeholder="Country">
+                            <input class="form-control" id="zip" name="zip" type="text" placeholder="ZipCode">
                         </div>
                     </div>
                     <div class="btn-list">
@@ -85,53 +90,53 @@
             {
                 <div class="pd-20 card-box mb-30">
                 <form method="post" asp-action="UpdateAuthor" asp-controller="Manage">
-                            <input asp-for="@Model.author_id" class="form-control" type="hidden">
+                                   <input class="form-control" id="author_id" value="@authorId" type="hidden">
                     <div class="form-group row">
-                        <label asp-for="@Model.first_name" class="col-sm-12 col-md-2 col-form-label">First Name</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">First Name</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.first_name" class="form-control" type="text" placeholder="First name" readonly="readonly">
+                            <input class="form-control" id="first_name" type="text" placeholder="First name" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.last_name" class="col-sm-12 col-md-2 col-form-label">Last Name</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Last Name</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.last_name" class="form-control" type="text" placeholder="Last name" readonly="readonly">
+                            <input class="form-control" id="last_name" type="text" placeholder="Last name" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.email_address" class="col-sm-12 col-md-2 col-form-label">Email</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Email</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.email_address" class="form-control" type="email" placeholder="email" readonly="readonly">
+                            <input class="form-control" id="email_address" type="email" placeholder="email" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.phone" class="col-sm-12 col-md-2 col-form-label">Phone</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Phone</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.phone" class="form-control" type="text" placeholder="phone" readonly="readonly">
+                            <input class="form-control" id="phone" type="text" placeholder="phone" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.address" class="col-sm-12 col-md-2 col-form-label">Address</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Address</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.address" class="form-control" type="text" placeholder="address" readonly="readonly">
+                            <input class="form-control" id="address" type="text" placeholder="address" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.city" class="col-sm-12 col-md-2 col-form-label">City</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">City</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.city" class="form-control" type="text" placeholder="City" readonly="readonly">
+                            <input class="form-control" id="city" type="text" placeholder="City" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.state" class="col-sm-12 col-md-2 col-form-label">State</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">State</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.state" class="form-control" type="text" placeholder="State" readonly="readonly">
+                            <input class="form-control" id="state" type="text" placeholder="State" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.zip" class="col-sm-12 col-md-2 col-form-label">Zip</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">ZipCode</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.zip" class="form-control" type="text" placeholder="Zip" readonly="readonly">
+                            <input class="form-control" id="zip" type="text" placeholder="ZipCode" readonly>
                         </div>
                     </div>
                     <div class="btn-list">
@@ -146,3 +151,59 @@
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            const apiUrl = 'https://localhost:44322/odata';
+
+            $.ajax({
+              url: apiUrl + "/Author/"+@authorId,
+              type: 'GET',
+              dataType: 'json',
+              success: function(data) {
+               for (const [key, value] of Object.entries(data)) {
+                    console.log(`${key}: ${value}`);
+                    $(`[id="${key}"]`).val(value);
+                }
+              },
+              error: function(xhr, status, error) {
+                console.error('Error:', error);
+              }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#form-update').submit(function(event) {
+              event.preventDefault(); // Prevent the default form submission
+
+              // Get the form data
+              //const formData = JSON.stringify($(this).serializeArray());
+              const formData = ConvertToJson($(this));
+
+              // Call the API to add the data
+              const apiUrl = 'https://localhost:44322/odata';
+              $.ajax({
+                url: apiUrl +"/Author/"+@authorId,
+                type: 'PUT',
+                cache: false,
+                processData: false,
+                contentType: 'application/json',
+                dataType: 'json',
+                data: formData,
+                success: function(data) {
+                  // Handle the API response here
+                  console.log('API response:', data);
+                  window.location.href = '/Manage/Author';
+                  // Optionally, perform any actions on successful response
+                },
+                error: function(xhr, status, error) {
+                  // Handle the error here
+                  console.error('Error:', error);
+                }
+              });
+            });
+        });
+    </script>
+}

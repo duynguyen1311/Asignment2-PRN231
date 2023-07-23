@@ -1,5 +1,6 @@
 ﻿using BusinessObject.Model;
 using DataAccess.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query;
@@ -9,6 +10,7 @@ namespace eBookStoreWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class PublisherController : ODataController
     {
         private readonly IPublisherRepository _repo;
@@ -28,6 +30,7 @@ namespace eBookStoreWebAPI.Controllers
 
         [HttpGet("{key}")]
         [EnableQuery]
+    
         public IActionResult Get([FromODataUri] int key)
         {
             var Publisher = _repo.GetPublisherById(key);

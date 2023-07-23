@@ -22,29 +22,29 @@
             </div>
             <!-- Default Basic Forms Start -->
             <div class="pd-20 card-box mb-30">
-                <form method="post" asp-action="AddPublisher" asp-controller="Manage">
+                <form method="post" id="form-add">
                     <div class="form-group row">
-                        <label asp-for="@Model.publisher_name" class="col-sm-12 col-md-2 col-form-label">Publisher Name</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Publisher Name</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.publisher_name" class="form-control" type="text" placeholder="Publisher name" required="required">
+                            <input class="form-control" id="publisher_name" name="publisher_name" type="text" placeholder="Publisher name" required="required">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.city" class="col-sm-12 col-md-2 col-form-label">City</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">City</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.city" class="form-control" type="text" placeholder="City">
+                            <input class="form-control" id="city" name="city" type="text" placeholder="City">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.state" class="col-sm-12 col-md-2 col-form-label">State</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">State</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.state" class="form-control" type="text" placeholder="State">
+                            <input class="form-control" id="state" name="state" type="text" placeholder="State">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.country" class="col-sm-12 col-md-2 col-form-label">Country</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Country</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.country" class="form-control" type="text" placeholder="Country">
+                            <input class="form-control" id="country" name="country" type="text" placeholder="Country">
                         </div>
                     </div>
                     <div class="btn-list">
@@ -58,3 +58,38 @@
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            $('#form-add').submit(function(event) {
+              event.preventDefault(); // Prevent the default form submission
+
+              // Get the form data
+              //const formData = JSON.stringify($(this).serializeArray());
+              const formData = ConvertToJson($(this));
+
+              // Call the API to add the data
+              const apiUrl = 'https://localhost:44322/odata';
+              $.ajax({
+                url: apiUrl +"/Publisher",
+                type: 'POST',
+                cache: false,
+                processData: false,
+                contentType: 'application/json',
+                dataType: 'json',
+                data: formData,
+                success: function(data) {
+                  // Handle the API response here
+                  console.log('API response:', data);
+                  window.location.href = '/Manage/Publisher';
+                  // Optionally, perform any actions on successful response
+                },
+                error: function(xhr, status, error) {
+                  // Handle the error here
+                  console.error('Error:', error);
+                }
+              });
+            });
+        });
+    </script>
+}

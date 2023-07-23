@@ -41,7 +41,7 @@ namespace eBookStore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginInputModel model)
         {
-           
+
 
             if (User.Identity?.IsAuthenticated == true) return RedirectToPage("/Home/Index");
 
@@ -49,31 +49,32 @@ namespace eBookStore.Controllers
             var body = new StringContent(json, Encoding.UTF8, "application/json");
             var requestModel = new LoginRequestDTO { Email = model.Email, Password = model.Password };
             var response = await client.PostAsync(ApiUrl, body);
-            var content = await response.EnsureSuccessStatusCode().Content.ReadAsStringAsync();
-            var res = JsonSerializer.Deserialize<LoginResponseModel>(content);
             if (response.IsSuccessStatusCode)
             {
-                /* HttpContext.Response.Cookies.Append("AccessToken", res.token, new CookieOptions
-                 {
-                     Expires = DateTime.Now.AddDays(1).AddMinutes(-1)
-                 });
-                 var claims = new List<Claim>
-             {
-                 new Claim(ClaimTypes.NameIdentifier, res.user_id.ToString()),
-                 new Claim(ClaimTypes.Name, $"{res.first_name} {res.middle_name} {res.last_name}"),
-                 new Claim(ClaimTypes.Email, res.email_address),
-                 new Claim(ClaimTypes.Role, res.role)
-             };
-                 var claimsIdentity = new ClaimsIdentity(claims, "login");
-                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-                 await HttpContext.SignInAsync("CookieAuthentication", claimsPrincipal, new AuthenticationProperties
-                 {
-                     IsPersistent = false
-                 });*/
-                if(res.role == "admin") HttpContext.Session.SetString("IsAdmin", "true");
+                var content = await response.EnsureSuccessStatusCode().Content.ReadAsStringAsync();
+                var res = JsonSerializer.Deserialize<LoginResponseModel>(content);
+
+                HttpContext.Response.Cookies.Append("AccessToken", res.token, new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(1).AddMinutes(-1)
+                });
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Sid, res.user_id.ToString()),
+                    new Claim(ClaimTypes.Name, res.first_name + " " + res.last_name),
+                    new Claim(ClaimTypes.Email, res.email_address),
+                    new Claim(ClaimTypes.Role, res.role)
+                };
+                var claimsIdentity = new ClaimsIdentity(claims, "login");
+                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+                await HttpContext.SignInAsync("CookieAuthentication", claimsPrincipal, new AuthenticationProperties
+                {
+                    IsPersistent = false
+                });
+                /*if(res.role == "admin") HttpContext.Session.SetString("IsAdmin", "true");
                 if(res.role == "user") HttpContext.Session.SetString("IsUser", "true");
-                HttpContext.Session.SetString("IsLoggedIn", "true");
-                return RedirectToAction("Index","Home");
+                HttpContext.Session.SetString("IsLoggedIn", "true");*/
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -86,8 +87,7 @@ namespace eBookStore.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync("CookieAuthentication");
-            HttpContext.Session.Clear();
-            return RedirectToAction("Login","Account");
+            return RedirectToAction("Login", "Account");
         }
     }
 }

@@ -9,6 +9,6 @@ namespace eBookStore.Models.Publisher
         public string? city { get; set; }
         public string? state { get; set; }
         public string? country { get; set; }
-        public bool IsEdited { get; set; }
+        public bool? IsEdited { get; set; }
     }
 }

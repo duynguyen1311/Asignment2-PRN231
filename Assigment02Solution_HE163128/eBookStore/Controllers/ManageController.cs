@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 
 namespace eBookStore.Controllers
 {
-    //[Authorize]
     public class ManageController : Controller
     {
         private readonly HttpClient client = null;
@@ -84,19 +84,11 @@ namespace eBookStore.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> UpdatePublisher(PublisherRequestViewModel model, string pid, bool isEdit)
+        public async Task<IActionResult> UpdatePublisher(string pid, bool isEdit)
         {
-            HttpResponseMessage response = await client.GetAsync(ApiUrl + $"/Publisher/{pid}");
-            string strData = await response.Content.ReadAsStringAsync();
-            var pub = new ResponseDetail<Publisher>().Value;
-            pub = System.Text.Json.JsonSerializer.Deserialize<Publisher>(strData);
-            model.pub_id = pub.pub_id;
-            model.publisher_name = pub.publisher_name;
-            model.state = pub.state;
-            model.country = pub.country;
-            model.city = pub.city;
-            model.IsEdited = isEdit;
-            return View(model);
+            ViewData["pubId"] = pid;
+            ViewData["IsEdit"] = isEdit;
+            return View();
         }
 
 
@@ -196,31 +188,11 @@ namespace eBookStore.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> BooksUpdate(BookRequestViewModel model, string bid, bool isEdit)
+        public async Task<IActionResult> BooksUpdate(string bid, bool isEdit)
         {
-            HttpResponseMessage response = await client.GetAsync(ApiUrl + $"/Book/{bid}");
-            string strData = await response.Content.ReadAsStringAsync();
-
-            var aut = new ResponseDetail<Book>().Value;
-            aut = System.Text.Json.JsonSerializer.Deserialize<Book>(strData);
-            model.book_id = aut.book_id;
-            model.title = aut.title;
-            model.type = aut.type;
-            model.pub_id = aut.pub_id;
-            model.price = aut.price;
-            model.advance = aut.advance;
-            model.royalty = aut.royalty;
-            model.ytd_sales = aut.ytd_sales;
-            model.notes = aut.notes;
-            model.published_date = aut.published_date;
-            model.IsEdited = isEdit;
-
-            HttpResponseMessage response1 = await client.GetAsync(ApiUrl + "/Publisher");
-            string strData1 = await response1.Content.ReadAsStringAsync();
-            ResponseObject<Publisher> rootObject = System.Text.Json.JsonSerializer.Deserialize<ResponseObject<Publisher>>(strData1);
-            ViewBag.model = rootObject.value;
-
-            return View(model);
+            ViewData["bookId"] = bid;
+            ViewData["IsEdit"] = isEdit;
+            return View();
         }
 
         [HttpPost]
@@ -288,7 +260,7 @@ namespace eBookStore.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateAuthor(AuthorRequestViewModel model, string aid, bool isEdit)
         {
-            HttpResponseMessage response = await client.GetAsync(ApiUrl + $"/Author/{aid}");
+            /*HttpResponseMessage response = await client.GetAsync(ApiUrl + $"/Author/{aid}");
             string strData = await response.Content.ReadAsStringAsync();
 
             var aut = new ResponseDetail<Author>().Value;
@@ -303,7 +275,10 @@ namespace eBookStore.Controllers
             model.state = aut.state;
             model.zip = aut.zip;
             model.IsEdited = isEdit;
-            return View(model);
+            return View(model);*/
+            ViewData["AuthorId"] = aid;
+            ViewData["IsEdit"] = isEdit;
+            return View();
         }
 
 
@@ -339,10 +314,6 @@ namespace eBookStore.Controllers
         [HttpGet]
         public async Task<IActionResult> Author()
         {
-            HttpResponseMessage response = await client.GetAsync(ApiUrl + "/Author?$orderby=author_id desc");
-            string strData = await response.Content.ReadAsStringAsync();
-            ResponseObject<Author> rootObject = System.Text.Json.JsonSerializer.Deserialize<ResponseObject<Author>>(strData);
-            ViewBag.model = rootObject.value;
             return View();
         }
 

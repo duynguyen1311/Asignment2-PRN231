@@ -2,6 +2,7 @@
 using BusinessObject.Model;
 using DataAccess.IRepository;
 using eBookStoreWebAPI.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Formatter;
@@ -55,7 +56,7 @@ namespace eBookStoreWebAPI.Controllers
         [HttpPut]
         public IActionResult Put([FromODataUri] int key, Book p)
         {
-            if (key != p.pub_id)
+            if (key != p.book_id)
             {
                 return BadRequest();
             }

@@ -1,5 +1,11 @@
 ﻿@model eBookStore.Models.Book.BookRequestViewModel 
 
+
+@{
+    var isEdited = ViewData["IsEdit"] as bool?;
+    var bookid = ViewData["bookId"] as string;
+}
+
 <div class="mobile-menu-overlay"></div>
 
 <div class="main-container">
@@ -14,73 +20,69 @@
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a asp-action="Book" asp-controller="Manage">Book List</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">@(Model.IsEdited ? "Edit Book" : "Detail Book")</li>
+                                <li class="breadcrumb-item active" aria-current="page">@(isEdited == true ? "Edit Book" : "Detail Book")</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
             </div>
             <!-- Default Basic Forms Start -->
-            @if (Model.IsEdited)
+            @if (isEdited == true)
             {
                 <div class="pd-20 card-box mb-30">
-                <form method="post" asp-action="BooksUpdate" asp-controller="Manage">
-                            <input asp-for="@Model.book_id" class="form-control" type="hidden">
+                <form method="post" id="form-update">
+                            <input id="book_id" name="book_id" class="form-control" type="hidden">
                     <div class="form-group row">
-                        <label asp-for="@Model.title" class="col-sm-12 col-md-2 col-form-label">Title</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Title</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.title" class="form-control" type="text" placeholder="Title" required="required">
+                            <input id="title" name="title" class="form-control" type="text" placeholder="Title" required="required">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.type" class="col-sm-12 col-md-2 col-form-label">Type</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Type</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.type" class="form-control" type="text" placeholder="Type" required="required">
+                            <input id="type" name="type" class="form-control" type="number" placeholder="Type" required="required">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.price" class="col-sm-12 col-md-2 col-form-label">Price</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Price</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.price" class="form-control" type="text" placeholder="Price" required="required">
+                            <input id="price" name="price" class="form-control" type="text" placeholder="Price" required="required">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.advance" class="col-sm-12 col-md-2 col-form-label">Advance</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Advance</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.advance" class="form-control" type="text" placeholder="Advance">
+                            <input id="advance" name="advance" class="form-control" type="text" placeholder="Advance">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.royalty" class="col-sm-12 col-md-2 col-form-label">Royalty</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Royalty</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.royalty" class="form-control" type="text" placeholder="Royalty">
+                            <input id="royalty" name="royalty" class="form-control" type="text" placeholder="Royalty">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.ytd_sales" class="col-sm-12 col-md-2 col-form-label">Year Sales</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Year Sales</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.ytd_sales" class="form-control" type="text" placeholder="Year Sales">
+                            <input id="ytd_sales" name="ytd_sales" class="form-control" type="text" placeholder="Year Sales">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.ytd_sales" class="col-sm-12 col-md-2 col-form-label">Notes</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Notes</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.notes" class="form-control" type="text" placeholder="Note">
+                            <input id="notes" name="notes" class="form-control" type="text" placeholder="Note">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.ytd_sales" class="col-sm-12 col-md-2 col-form-label">Published Date</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Published Date</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.published_date" class="form-control" type="text" readonly="readonly" placeholder="publishedDate">
+                            <input id="published_date" name="published_date" class="form-control" type="date" readonly="readonly" placeholder="publishedDate">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Publisher</label>
-                        <select asp-for="@Model.pub_id" class="custom-select2 form-control" style="width: 100%; height: 38px;">
-                            @foreach(var item in ViewBag.model)
-                            {
-                                <option value="@item.pub_id">@item.publisher_name</option>
-                            }
+                        <select id="pub_id" name="pub_id" class="custom-select2 form-control" style="width: 100%; height: 38px;">
                         </select>
                     </div>
                     <div class="btn-list">
@@ -94,50 +96,53 @@
             {
                 <div class="pd-20 card-box mb-30">
                 <form method="post" asp-action="UpdateBook" asp-controller="Manage">
-                            <input asp-for="@Model.book_id" class="form-control" type="hidden">
+                            <input id="book_id" name="book_id" class="form-control" type="hidden">
                     <div class="form-group row">
-                        <label asp-for="@Model.title" class="col-sm-12 col-md-2 col-form-label">Title</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Title</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.title" class="form-control" type="text" placeholder="Title" readonly="readonly">
+                            <input id="title" name="title" class="form-control" type="text" placeholder="Title" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.type" class="col-sm-12 col-md-2 col-form-label">Type</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Type</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.type" class="form-control" type="text" placeholder="Type" readonly="readonly">
+                            <input id="type" name="type" class="form-control" type="number" placeholder="Type" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.price" class="col-sm-12 col-md-2 col-form-label">Price</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Price</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.price" class="form-control" type="text" placeholder="Price" readonly="readonly">
+                            <input id="price" name="price" class="form-control" type="number" placeholder="Price" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.advance" class="col-sm-12 col-md-2 col-form-label">Advance</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Advance</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.advance" class="form-control" type="text" placeholder="Advance" readonly="readonly">
+                            <input id="advance" name="advance" class="form-control" type="number" placeholder="Advance" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.royalty" class="col-sm-12 col-md-2 col-form-label">Royalty</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Royalty</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.royalty" class="form-control" type="text" placeholder="Royalty" readonly="readonly">
+                            <input id="royalty" name="royalty" class="form-control" type="number" placeholder="Royalty" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.ytd_sales" class="col-sm-12 col-md-2 col-form-label">Year Sales</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Year Sales</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.ytd_sales" class="form-control" type="text" placeholder="Year Sales" readonly="readonly">
+                            <input id="ytd_sales" name="ytd_sales" class="form-control" type="number" placeholder="Year Sales" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Notes</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input id="notes" name="notes" class="form-control" type="text" placeholder="Note" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Publisher</label>
-                        <select asp-for="@Model.pub_id" class="custom-select2 form-control" disabled style="width: 100%; height: 38px;">
-                            @foreach(var item in ViewBag.model)
-                            {
-                                <option value="@item.pub_id">@item.publisher_name</option>
-                            }
+                        <select id="pub_id" name="pub_id" class="custom-select2 form-control" disabled style="width: 100%; height: 38px;">
+                            
                         </select>
                     </div>
                     <div class="btn-list">
@@ -152,3 +157,84 @@
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            const apiUrl = 'https://localhost:44322/odata';
+            var publisherid = null;
+            $.ajax({
+              url: apiUrl + "/Book/"+@bookid + "?$expand=publisher",
+              type: 'GET',
+              dataType: 'json',
+              success: function(data) {
+                for (const [key, value] of Object.entries(data)) {
+                    console.log(`${key}: ${value}`);
+                    //if (key.includes("Publisher"))
+                    //    $(`[id="${key}"]`).val(value.publisher_name)
+                    if (key.includes("date")) $(`[id="${key}"]`).val(value.substring(0, 10))
+                    else $(`[id="${key}"]`).val(value);
+                    if (key == "pub_id") publisherid = value;
+                }
+                 
+              },
+              error: function(xhr, status, error) {
+                console.error('Error:', error);
+              }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+
+              // AJAX call to fetch data from the API endpoint
+              $.ajax({
+                url: "https://localhost:44322/odata/Publisher",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                  $.each(data.value, function (index, res) {
+                   content = `<option value="${res.pub_id}">${res.publisher_name}</option>`;
+                  $("select").append(content);
+                }); // Populate the select element with the received data
+                },
+                error: function (error) {
+                  console.error("Error fetching data: " + error);
+                },
+              });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#form-update').submit(function(event) {
+              event.preventDefault(); // Prevent the default form submission
+
+              // Get the form data
+              //const formData = JSON.stringify($(this).serializeArray());
+              const formData = ConvertToJson($(this));
+
+              // Call the API to add the data
+              const apiUrl = 'https://localhost:44322/odata';
+              $.ajax({
+                url: apiUrl +"/Book/"+@bookid,
+                type: 'Put',
+                cache: false,
+                processData: false,
+                contentType: 'application/json',
+                dataType: 'json',
+                data: formData,
+                success: function(data) {
+                  // Handle the API response here
+                  console.log('API response:', data);
+                  window.location.href = '/Manage/Book';
+                  // Optionally, perform any actions on successful response
+                },
+                error: function(xhr, status, error) {
+                  // Handle the error here
+                  console.error('Error:', error);
+                }
+              });
+            });
+        });
+    </script>
+}

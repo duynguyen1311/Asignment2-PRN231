@@ -13,8 +13,7 @@ builder.Services.AddAuthorization();
 builder.Services.AddAuthentication("CookieAuthentication")
     .AddCookie("CookieAuthentication", options =>
     {
-        options.LoginPath = "/Account/Login";
-        //options.ExpireTimeSpan = TimeSpan.FromHours(23).Add(TimeSpan.FromMinutes(50));
+        options.ExpireTimeSpan = TimeSpan.FromHours(23).Add(TimeSpan.FromMinutes(50));
     });
 
 builder.Services.AddHttpContextAccessor();

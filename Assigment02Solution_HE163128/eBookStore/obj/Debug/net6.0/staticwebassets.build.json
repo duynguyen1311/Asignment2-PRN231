@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "95kamrfNo1lz6EQLGlMB+4pnZcNKG0KvpNmjR/SNtEE=",
+  "Hash": "xqwbFrAFr57HrupwZ9iF1P5k1TtcGLg1G+uoM0PbNdE=",
   "Source": "eBookStore",
   "BasePath": "_content/eBookStore",
   "Mode": "Default",
@@ -1938,23 +1938,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -1970,23 +1953,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
@@ -2006,23 +1972,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -2038,23 +1987,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
@@ -2074,23 +2006,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -2106,23 +2021,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
@@ -2142,23 +2040,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -2174,23 +2055,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
@@ -2210,23 +2074,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -2242,23 +2089,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
@@ -2278,23 +2108,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -2310,23 +2123,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
@@ -2346,23 +2142,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -2378,23 +2157,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
@@ -2414,23 +2176,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -2446,23 +2191,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
@@ -2482,23 +2210,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -2514,23 +2225,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
@@ -2550,23 +2244,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -2582,23 +2259,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
@@ -2618,23 +2278,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
-    },
-    {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "eBookStore",
       "SourceType": "Discovered",
@@ -2650,23 +2293,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
-    },
-    {
-      "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
-      "SourceId": "eBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\",
-      "BasePath": "_content/eBookStore",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
       "Identity": "E:\\C# project\\Asignment2-PRN231\\Assigment02Solution_HE163128\\eBookStore\\wwwroot\\lib\\bootstrap\\LICENSE",

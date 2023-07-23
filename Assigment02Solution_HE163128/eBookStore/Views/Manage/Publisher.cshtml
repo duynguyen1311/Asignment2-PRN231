@@ -24,7 +24,7 @@
                             </ol>
                         </nav>
                     </div>
-                    @if (!string.IsNullOrEmpty(isAdmin))
+                    @if (User.IsInRole("admin"))
                     {
                         <div class="col-md-6 col-sm-12 text-right">
                             <div class="dropdown">
@@ -77,7 +77,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in ViewBag.model)
+                        @*@foreach (var item in ViewBag.model)
                         {
                             <tr>
                                 <td>@item.publisher_name</td>
@@ -90,8 +90,6 @@
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                             <i class="dw dw-more"></i>
                                         </a>
-                                        @*@if (User.IsInRole(RoleConstant.ADMIN))
-                                        {*@
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                             @if (!string.IsNullOrEmpty(isAdmin))
                                             {
@@ -100,18 +98,10 @@
                                             }
                                             <a href="@Url.Action("UpdatePublisher", "Manage", new { isEdit = false, pid = item.pub_id})" class="dropdown-item" ><i class="dw dw-edit1"></i> Detail</a>
                                             </div>
-                                        @*}*@
-                                        @*else
-                                        {
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                <a class="dropdown-item" asp-page="UpdatePublisher" asp-route-id="@item.Id"><i class="dw dw-edit2"></i> View</a>
-                                            </div>
-                                        }*@
-
                                     </div>
                                 </td>
                             </tr>
-                        }
+                        }*@
                     </tbody>
                 </table>
             </div>
@@ -138,3 +128,85 @@
         return false;
     }
 </script>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+        ShowAllOrder();
+        function ShowAllOrder() {
+            $("table tbody").html("");
+            $.ajax({
+                url: "https://localhost:44322/odata"+"/Publisher?$orderby=pub_id desc",
+                mimeType: "text/html; charset=utf-8",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data.value, function (key, res) {
+                        content = `
+                             <tr>
+                                <td>${res.publisher_name}</td>
+                                <td>${res.city}</td>
+                                <td>${res.state}</td>
+                                <td>${res.country}</td>
+                                
+                                <td>
+                                    <div class="dropdown">
+                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                            <i class="dw dw-more"></i>
+                                        </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                            @if (User.IsInRole("admin"))
+                                            {
+                                            <a href="/Manage/UpdatePublisher?pid=${res.pub_id}&isEdit=true" class="dropdown-item" ><i class="dw dw-edit2"></i> Edit</a>    
+                                            <a class="dropdown-item" onclick="onDelete(${res.pub_id})"><i class="dw dw-delete-3" ></i> Delete</a>
+                                            }else{
+                                             <a href="/Manage/UpdatePublisher?pid=${res.pub_id}&isEdit=false" class="dropdown-item" ><i class="dw dw-edit1"></i> Detail</a>
+                                            }
+                                            </div>
+
+                                    </div>
+                                </td>
+                            </tr> 
+                        `
+                        $("tbody").append(content);
+                    });
+                },
+                error: function (err) {
+                    alert("Error: " + err.status);
+                }
+            });
+        }
+    });
+    function onDelete(pubid){
+                Swal.fire({
+                            title: 'Are you sure?',
+                            text: "You won't be able to revert this!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#d33',
+                            cancelButtonColor: '#3085d6',
+                            confirmButtonText: 'Yes, delete it!'
+                }).then((result) =>{
+                        if(result.isConfirmed){
+                            $.ajax({
+                                    url: "https://localhost:44322/odata"+"/Publisher/"+pubid,
+                                    mimeType: "text/html; charset=utf-8",
+                                    type: "DELETE",
+                                    dataType: "json",
+                                    success: function (data) {
+                                        Swal.fire(
+                                            'Deleted!',
+                                            'Your file has been deleted.',
+                                            'success'
+                                        )
+                                        window.location.reload(true);
+                                    },
+                                    error: function (err) {
+                                        alert("Error: " + err.status);
+                                    }
+                                });
+                        }
+                    })
+            }
+    </script>
+}

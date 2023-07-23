@@ -1,5 +1,9 @@
 ﻿@model eBookStore.Models.Publisher.PublisherRequestViewModel
 
+@{
+    var isEdited = ViewData["IsEdit"] as bool?;
+    var pubId = ViewData["pubId"] as string;
+}
 <div class="mobile-menu-overlay"></div>
 
 <div class="main-container">
@@ -14,41 +18,41 @@
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a asp-action="Publisher" asp-controller="Manage">Publisher List</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">@(Model.IsEdited ? "Edit Publisher" : "Detail Publisher")</li>
+                                <li class="breadcrumb-item active" aria-current="page">@(isEdited == true ? "Edit Publisher" : "Detail Publisher")</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
             </div>
             <!-- Default Basic Forms Start -->
-            @if (Model.IsEdited)
+            @if (isEdited == true)
             {
                 
             <div class="pd-20 card-box mb-30">
                 <form method="post" asp-action="UpdatePublisher" asp-controller="Manage">
-                            <input asp-for="@Model.pub_id" class="form-control" type="hidden">
+                            <input id="pub_id" name="pub_id" class="form-control" type="hidden">
                     <div class="form-group row">
-                        <label asp-for="@Model.publisher_name" class="col-sm-12 col-md-2 col-form-label">Publisher Name</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Publisher Name</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.publisher_name" class="form-control" type="text" placeholder="Publisher name">
+                            <input id="publisher_name" name="publisher_name" class="form-control" type="text" placeholder="Publisher name">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.city" class="col-sm-12 col-md-2 col-form-label">City</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">City</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.city" class="form-control" type="text" placeholder="City">
+                            <input id="city" name="city" class="form-control" type="text" placeholder="City">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.state" class="col-sm-12 col-md-2 col-form-label">State</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">State</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.state" class="form-control" type="text" placeholder="State">
+                            <input id="state" name="state" class="form-control" type="text" placeholder="State">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.country" class="col-sm-12 col-md-2 col-form-label">Country</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Country</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.country" class="form-control" type="text" placeholder="Country">
+                            <input id="country" name="country" class="form-control" type="text" placeholder="Country">
                         </div>
                     </div>
                     <div class="btn-list">
@@ -62,29 +66,29 @@
             {
             <div class="pd-20 card-box mb-30">
                 
-                            <input asp-for="@Model.pub_id" class="form-control" type="hidden">
+                            <input id="pub_id" name="pub_id" class="form-control" type="hidden">
                     <div class="form-group row">
-                        <label asp-for="@Model.publisher_name" class="col-sm-12 col-md-2 col-form-label">Publisher Name</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Publisher Name</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.publisher_name" class="form-control" type="text" readonly="readonly" placeholder="Publisher name">
+                            <input id="publisher_name" name="publisher_name" class="form-control" type="text" readonly="readonly" placeholder="Publisher name">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.city" class="col-sm-12 col-md-2 col-form-label">City</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">City</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.city" class="form-control" type="text" readonly="readonly" placeholder="City">
+                            <input id="city" name="city" class="form-control" type="text" readonly="readonly" placeholder="City">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.state" class="col-sm-12 col-md-2 col-form-label">State</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">State</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.state" class="form-control" type="text" readonly="readonly" placeholder="State">
+                            <input id="state" name="state" class="form-control" type="text" readonly="readonly" placeholder="State">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label asp-for="@Model.country" class="col-sm-12 col-md-2 col-form-label">Country</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Country</label>
                         <div class="col-sm-12 col-md-10">
-                            <input asp-for="@Model.country" class="form-control" type="text" readonly="readonly" placeholder="Country">
+                            <input id="country" name="country" class="form-control" type="text" readonly="readonly" placeholder="Country">
                         </div>
                     </div>
 
@@ -98,3 +102,58 @@
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            const apiUrl = 'https://localhost:44322/odata';
+
+            $.ajax({
+              url: apiUrl + "/Publisher/"+@pubId,
+              type: 'GET',
+              dataType: 'json',
+              success: function(data) {
+               for (const [key, value] of Object.entries(data)) {
+                    console.log(`${key}: ${value}`);
+                    $(`[id="${key}"]`).val(value);
+                }
+              },
+              error: function(xhr, status, error) {
+                console.error('Error:', error);
+              }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#form-update').submit(function(event) {
+              event.preventDefault(); // Prevent the default form submission
+
+              // Get the form data
+              //const formData = JSON.stringify($(this).serializeArray());
+              const formData = ConvertToJson($(this));
+
+              // Call the API to add the data
+              const apiUrl = 'https://localhost:44322/odata';
+              $.ajax({
+                url: apiUrl +"/Publisher/"+@pubId,
+                type: 'PUT',
+                cache: false,
+                processData: false,
+                contentType: 'application/json',
+                dataType: 'json',
+                data: formData,
+                success: function(data) {
+                  // Handle the API response here
+                  console.log('API response:', data);
+                  window.location.href = '/Manage/Publisher';
+                  // Optionally, perform any actions on successful response
+                },
+                error: function(xhr, status, error) {
+                  // Handle the error here
+                  console.error('Error:', error);
+                }
+              });
+            });
+        });
+    </script>
+}

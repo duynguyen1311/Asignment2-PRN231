@@ -119,11 +119,8 @@
                         </div>
                     </div>
                 </div>
-                @{
-                var isLoggedIn = Context.Session.GetString("IsLoggedIn");
-                }
                 
-                @if(!string.IsNullOrEmpty(isLoggedIn))
+                @if(User.Identity?.IsAuthenticated == true)
                 {
                  <div class="user-info-dropdown">
                     
@@ -212,6 +209,8 @@
     <script src="~/src/plugins/sweetalert2/sweetalert2.all.js"></script>
     <script src="~/src/plugins/sweetalert2/sweet-alert.init.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="~/js/site.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

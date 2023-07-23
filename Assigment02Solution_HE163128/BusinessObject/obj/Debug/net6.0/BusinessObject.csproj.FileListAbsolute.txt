@@ -1,17 +1,3 @@
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\bin\Debug\net6.0\BusinessObject.deps.json
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\bin\Debug\net6.0\BusinessObject.runtimeconfig.json
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\bin\Debug\net6.0\BusinessObject.dll
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\bin\Debug\net6.0\BusinessObject.pdb
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.AssemblyReference.cache
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\obj\Debug\net6.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfoInputs.cache
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfo.cs
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.CoreCompileInputs.cache
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\obj\Debug\net6.0\BusinessObject.dll
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\obj\Debug\net6.0\refint\BusinessObject.dll
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\obj\Debug\net6.0\BusinessObject.pdb
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\obj\Debug\net6.0\BusinessObject.genruntimeconfig.cache
-E:\C# project\Assigment02Solution_StudentCode\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll
 E:\C# project\Asignment2-PRN231\Assigment02Solution_HE163128\BusinessObject\bin\Debug\net6.0\BusinessObject.deps.json
 E:\C# project\Asignment2-PRN231\Assigment02Solution_HE163128\BusinessObject\bin\Debug\net6.0\BusinessObject.runtimeconfig.json
 E:\C# project\Asignment2-PRN231\Assigment02Solution_HE163128\BusinessObject\bin\Debug\net6.0\BusinessObject.dll

@@ -2,8 +2,6 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    var isAdmin = Context.Session.GetString("IsAdmin");
-    var isUser = Context.Session.GetString("IsUser");
 }
 
 <div class="mobile-menu-overlay"></div>
@@ -24,7 +22,7 @@
                             </ol>
                         </nav>
                     </div>
-                    @if (!string.IsNullOrEmpty(isAdmin))
+                    @if (User.IsInRole("admin"))
                     {
                         <div class="col-md-6 col-sm-12 text-right">
                             <div class="dropdown">
@@ -80,7 +78,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in ViewBag.model)
+                       @* @foreach (var item in ViewBag.model)
                         {
                             <tr>
                                 <td>@(item.first_name + " " + item.last_name)</td>
@@ -96,8 +94,6 @@
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                             <i class="dw dw-more"></i>
                                         </a>
-                                        @*@if (User.IsInRole(RoleConstant.ADMIN))
-                                        {*@
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                             @if (!string.IsNullOrEmpty(isAdmin))
                                             {
@@ -106,18 +102,11 @@
                                             }
                                                 <a href="@Url.Action("UpdateAuthor", "Manage", new { isEdit = false, aid = item.author_id})" class="dropdown-item" ><i class="dw dw-edit1"></i> Detail</a>
                                             </div>
-                                        @*}*@
-                                        @*else
-                                        {
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                <a class="dropdown-item" asp-page="UpdateAuthor" asp-route-id="@item.Id"><i class="dw dw-edit2"></i> View</a>
-                                            </div>
-                                        }*@
 
                                     </div>
                                 </td>
-                            </tr>
-                        }
+                            </tr> 
+                        }*@
                     </tbody>
                 </table>
             </div>
@@ -144,3 +133,88 @@
         return false;
     }
 </script>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            ShowAll();
+            function ShowAll() {
+                $("table tbody").html("");
+                $.ajax({
+                    url: "https://localhost:44322/odata"+"/Author?$orderby=author_id desc",
+                    mimeType: "text/html; charset=utf-8",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        $.each(data.value, function (key, res) {
+                            content = `
+                                 <tr>
+                                    <td>${res.first_name + " " + res.last_name}</td>
+                                    <td>${res.email_address}</td>
+                                    <td>${res.phone}</td>
+                                    <td>${res.address}</td>
+                                    <td>${res.city}</td>
+                                    <td>${res.state}</td>
+                                    <td>${res.zip}</td>
+                                
+                                    <td>
+                                        <div class="dropdown">
+                                            <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                <i class="dw dw-more"></i>
+                                            </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                @if(User.IsInRole("admin"))
+                                                {
+                                                <a href="/Manage/UpdateAuthor?aid=${res.author_id}&isEdit=true" class="dropdown-item" ><i class="dw dw-edit2"></i> Edit</a>    
+                                                <a class="dropdown-item" onclick="onDelete(${res.author_id})"><i class="dw dw-delete-3" ></i> Delete</a>
+                                                }else{
+                                                 <a href="/Manage/UpdateAuthor?aid=${res.author_id}&isEdit=false" class="dropdown-item" ><i class="dw dw-edit1"></i> Detail</a>
+                                                }
+                                                </div>
+
+                                        </div>
+                                    </td>
+                                </tr> 
+                            `
+                            $("tbody").append(content);
+                        });
+                    },
+                    error: function (err) {
+                        alert("Error: " + err.status);
+                    }
+                });
+            }
+
+        });
+        function onDelete(authorid){
+                Swal.fire({
+                            title: 'Are you sure?',
+                            text: "You won't be able to revert this!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#d33',
+                            cancelButtonColor: '#3085d6',
+                            confirmButtonText: 'Yes, delete it!'
+                }).then((result) =>{
+                        if(result.isConfirmed){
+                            $.ajax({
+                                    url: "https://localhost:44322/odata"+"/Author/"+authorid,
+                                    mimeType: "text/html; charset=utf-8",
+                                    type: "DELETE",
+                                    dataType: "json",
+                                    success: function (data) {
+                                        Swal.fire(
+                                            'Deleted!',
+                                            'Your file has been deleted.',
+                                            'success'
+                                        )
+                                        window.location.reload(true);
+                                    },
+                                    error: function (err) {
+                                        alert("Error: " + err.status);
+                                    }
+                                });
+                        }
+                    })
+            }
+    </script>
+}

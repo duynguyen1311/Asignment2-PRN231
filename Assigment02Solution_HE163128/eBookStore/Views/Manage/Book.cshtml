@@ -1,10 +1,6 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-    var isAdmin = Context.Session.GetString("IsAdmin");
-    var isUser = Context.Session.GetString("IsUser");
-}
 
 <div class="mobile-menu-overlay"></div>
 
@@ -24,7 +20,7 @@
                             </ol>
                         </nav>
                     </div>
-                    @if (!string.IsNullOrEmpty(isAdmin))
+                    @if (User.IsInRole("admin"))
                     {
                         <div class="col-md-6 col-sm-12 text-right">
                             <div class="dropdown">
@@ -36,7 +32,7 @@
                     }
                 </div>
             </div>
-            <form method="post" asp-action="Book" asp-controller="Manage">
+            <form method="post" id="form-filter">
                 <div class="row mb-15">
                     <div class="col-md-4">
                         <div class="header-search">
@@ -44,7 +40,7 @@
                                 <div class="form-group mb-0" style="display:flex">
                                     <i style="justify-content: flex-start;"
                                        class="dw dw-search2 search-icon mr-10 mt-15"></i>
-                                    <input name="keyword" style="justify-content: flex-end;" type="text"
+                                    <input id="keyword" name="keyword" style="justify-content: flex-end;" type="text"
                                            class="form-control search-input" placeholder="Title">
                                 </div>
                             
@@ -53,11 +49,11 @@
                     <div class="col-md-4">
                         <div class="header-search">
                                 <div class="form-group mb-0" style="display:flex">
-                                    <input name="fromPrice" style="justify-content: flex-end;" type="number"
+                                    <input id="fromPrice" name="fromPrice" style="justify-content: flex-end;" type="number"
                                            class="form-control search-input" placeholder="From Price">
                                 </div>
                                 <div class="form-group mb-0" style="display:flex">
-                                    <input name="toPrice" style="justify-content: flex-end;" type="number"
+                                    <input id="toPrice" name="toPrice" style="justify-content: flex-end;" type="number"
                                            class="form-control search-input" placeholder="To Price">
                                 </div>
                         </div>
@@ -82,7 +78,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in ViewBag.model)
+                        @*@foreach (var item in ViewBag.model)
                         {
                             <tr>
                                 <td>@item.title</td>
@@ -111,10 +107,156 @@
                                     </div>
                                 </td>
                             </tr>
-                        }
+                        }*@
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+        ShowAll();
+        function ShowAll() {
+            $("table tbody").html("");
+            $.ajax({
+                url: "https://localhost:44322/odata"+"/Book?$expand=Publisher&$orderby=book_id desc",
+                mimeType: "text/html; charset=utf-8",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data.value, function (key, res) {
+                        content = `
+                             <tr>
+                                <td>${res.title}</td>
+                                <td>${(res.type == 1 ? "Novel" : "Story")}</td>
+                                <td>${res.Publisher.publisher_name}</td>
+                                <td>${res.price}</td>
+                                <td>${res.advance}</td>
+                                <td>${res.royalty}</td>
+                                <td>${res.ytd_sales}</td>
+                                <td>${res.notes}</td>
+                                <td>${res.published_date}</td>
+                                
+
+                                <td>
+                                    <div class="dropdown">
+                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                            <i class="dw dw-more"></i>
+                                        </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                             @if (User.IsInRole("admin"))
+                                                {
+                                                <a href="/Manage/BooksUpdate?bid=${res.book_id}&isEdit=true" class="dropdown-item" ><i class="dw dw-edit2"></i> Edit</a>    
+                                                <a class="dropdown-item" onclick="onDelete(${res.book_id})"><i class="dw dw-delete-3" ></i> Delete</a>
+                                                }else{
+                                                 <a href="/Manage/BooksUpdate?aid=${res.book_id}&isEdit=false" class="dropdown-item" ><i class="dw dw-edit1"></i> Detail</a>
+                                                }
+                                            </div>
+
+                                    </div>
+                                </td>
+                            </tr> 
+                        `
+                        $("tbody").append(content);
+                    });
+                },
+                error: function (err) {
+                    alert("Error: " + err.status);
+                }
+            });
+        }
+        $("form").on("submit", function (e) {
+            e.preventDefault();
+            $("table tbody").html("");
+            let keyword = $("form input[name='keyword']").val();
+            let from = parseFloat($("form input[name='fromPrice']").val());
+            let to = parseFloat($("form input[name='toPrice']").val());
+
+            var apiUrl = "https://localhost:44322/odata"+"/Book?$expand=Publisher&$orderby=book_id desc";
+            if(keyword != null || keyword != "" || keyword != "undefinded") apiUrl += `&$filter=contains(title,'${keyword}') `;
+            if(!isNaN(from)) apiUrl += `and price ge ${from}`;
+            if(!isNaN(to)) apiUrl += `and price le ${to} `;
+            $.ajax({
+                url: apiUrl,
+                mimeType: "text/html; charset=utf-8",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data.value, function (key, res) {
+                        content = `
+                             <tr>
+                                <td>${res.title}</td>
+                                <td>${(res.type == 1 ? "Novel" : "Story")}</td>
+                                <td>${res.Publisher.publisher_name}</td>
+                                <td>${res.price}</td>
+                                <td>${res.advance}</td>
+                                <td>${res.royalty}</td>
+                                <td>${res.ytd_sales}</td>
+                                <td>${res.notes}</td>
+                                <td>${res.published_date.substring(0, 10)}</td>
+                                
+
+                                <td>
+                                    <div class="dropdown">
+                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                            <i class="dw dw-more"></i>
+                                        </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                @if (User.IsInRole("admin"))
+                                                {
+                                                <a href="/Manage/BooksUpdate?bid=${res.book_id}&isEdit=true" class="dropdown-item" ><i class="dw dw-edit2"></i> Edit</a>    
+                                                <a class="dropdown-item" onclick="onDelete(${res.book_id})"><i class="dw dw-delete-3" ></i> Delete</a>
+                                                }else{
+                                                 <a href="/Manage/BooksUpdate?aid=${res.book_id}&isEdit=false" class="dropdown-item" ><i class="dw dw-edit1"></i> Detail</a>
+                                                }
+                                            </div>
+
+                                    </div>
+                                </td>
+                            </tr> 
+                        `
+                        $("tbody").append(content);
+                    });
+                },
+                error: function (err) {
+                    alert("Error: " + err.status);
+                }
+            });
+        })
+
+        });
+        function onDelete(bookId){
+                Swal.fire({
+                            title: 'Are you sure?',
+                            text: "You won't be able to revert this!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#d33',
+                            cancelButtonColor: '#3085d6',
+                            confirmButtonText: 'Yes, delete it!'
+                }).then((result) =>{
+                        if(result.isConfirmed){
+                            $.ajax({
+                                    url: "https://localhost:44322/odata"+"/Book/"+bookId,
+                                    mimeType: "text/html; charset=utf-8",
+                                    type: "DELETE",
+                                    dataType: "json",
+                                    success: function (data) {
+                                        Swal.fire(
+                                            'Deleted!',
+                                            'Your file has been deleted.',
+                                            'success'
+                                        )
+                                        window.location.reload(true);
+                                    },
+                                    error: function (err) {
+                                        alert("Error: " + err.status);
+                                    }
+                                });
+                        }
+                    })
+            }
+    </script>
+}

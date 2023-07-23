@@ -1,5 +1,6 @@
 ﻿using BusinessObject.Model;
 using DataAccess.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Formatter;
@@ -10,6 +11,7 @@ namespace eBookStoreWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class AuthorController : ODataController
     {
         private readonly IAuthorRepository _repo;
@@ -21,6 +23,7 @@ namespace eBookStoreWebAPI.Controllers
 
         [HttpGet]
         [EnableQuery]
+
         public IActionResult Get()
         {
             var list = _repo.GetAuthors();
@@ -29,6 +32,7 @@ namespace eBookStoreWebAPI.Controllers
 
         [HttpGet("{key}")]
         [EnableQuery]
+
         public IActionResult Get([FromODataUri] int key)
         {
             var Author = _repo.GetAuthorById(key);
@@ -39,8 +43,8 @@ namespace eBookStoreWebAPI.Controllers
 
             return Ok(Author);
         }
-
         [HttpPost]
+
         public IActionResult Post([FromBody] Author p)
         {
             _repo.SaveAuthor(p);
@@ -49,6 +53,7 @@ namespace eBookStoreWebAPI.Controllers
         }
 
         [HttpPut]
+
         public IActionResult Put([FromODataUri] int key, Author p)
         {
             if (key != p.author_id)
@@ -62,6 +67,7 @@ namespace eBookStoreWebAPI.Controllers
         }
 
         [HttpDelete]
+
         public IActionResult Delete([FromODataUri] int key)
         {
             _repo.DeleteAuthor(key);
