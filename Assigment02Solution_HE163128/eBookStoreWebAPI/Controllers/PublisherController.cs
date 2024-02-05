@@ -10,7 +10,7 @@ namespace eBookStoreWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+    [Authorize]
     public class PublisherController : ODataController
     {
         private readonly IPublisherRepository _repo;
@@ -22,6 +22,7 @@ namespace eBookStoreWebAPI.Controllers
 
         [HttpGet]
         [EnableQuery]
+        [Authorize]
         public IActionResult Get()
         {
             var list = _repo.GetPublishers();
